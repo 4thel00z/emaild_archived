@@ -1,0 +1,10 @@
+{
+  "": {
+    "type": 0,
+    "address": "smtp.gmail.com:587",
+    "count": 100,
+    "username": "",
+    "password": "",
+    "host": "smtp.gmail.com"
+  }
+}
