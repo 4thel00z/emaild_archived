@@ -6,7 +6,13 @@ import (
 )
 
 type Base64 string
+
 type SmartString string
+
+type GenericResponse struct {
+	Message interface{} `json:"message"`
+	Error   string      `json:"error"`
+}
 
 func (val *Base64) UnmarshalJSON(b []byte) error {
 
