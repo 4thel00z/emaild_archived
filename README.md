@@ -23,7 +23,6 @@ This is subject to change. 😇
 
 ## Todos
 
-- Add makefile (lol) 😇
 - Provide unix domain socket webserver
 - Document the interface
 - Provide a client
