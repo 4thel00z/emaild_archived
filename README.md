@@ -3,7 +3,7 @@
 ## Description
 
 emaild is a cool email daemon 😎 which can schedule email sending to a later time in the day and also handle bulk requests.
-Communication happens through a unix domain socket, which means two thinks:
+Communication happens through a unix domain socket, which means two things:
 - this is a unix software
 - this software is intended for local usage
 
@@ -23,6 +23,7 @@ This is subject to change. 😇
 
 ## Todos
 
+- Add makefile (lol) 😇
 - Provide unix domain socket webserver
 - Document the interface
 - Provide a client
