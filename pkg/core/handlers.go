@@ -2,14 +2,13 @@ package core
 
 import (
 	"encoding/json"
-	"github.com/4thel00z/emaild/public/core"
 	"github.com/monzo/typhon"
 	"io/ioutil"
 )
 
 func sendEmail(req typhon.Request) typhon.Response {
 	var (
-		message core.Message
+		message Message
 	)
 
 	body, err := ioutil.ReadAll(req.Body)
