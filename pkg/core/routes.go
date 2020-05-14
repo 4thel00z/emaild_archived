@@ -4,10 +4,10 @@ import (
 	"github.com/monzo/typhon"
 )
 
-func Router() typhon.Router {
+func Router(scheduler *Scheduler) typhon.Router {
 	r := typhon.Router{}
 
-	r.POST("/email/send",sendEmail)
+	r.POST("/email/send",sendEmail(scheduler))
 
 	return r
 }

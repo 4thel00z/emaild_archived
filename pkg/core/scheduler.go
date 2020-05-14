@@ -23,6 +23,9 @@ func NewScheduler(size int, accounts map[string]Account) *Scheduler {
 		accounts:    accounts,
 	}
 }
+func (s *Scheduler) Exit() {
+	s.exitChannel <- nil
+}
 
 func (s *Scheduler) Schedule(message Message) error {
 	if !s.hasAccount(message.Account) {
