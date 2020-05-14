@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/smtp"
 	"os"
+	"time"
 )
 
 const (
@@ -15,14 +16,18 @@ const (
 	MICROSOFT
 )
 
+type Sender interface {
+	Send(e *email.Email, timeout time.Duration) (err error)
+}
+
 type Account struct {
-	Type        int    `json:"type"`
-	Address     string `json:"address"`
-	Count       int    `json:"count"`
-	User        string `json:"user"`
-	Password    string `json:"password"`
-	Host        string `json:"host"`
-	*email.Pool `json:"_"`
+	Type     int    `json:"type"`
+	Address  string `json:"address"`
+	Count    int    `json:"count"`
+	User     string `json:"user"`
+	Password string `json:"password"`
+	Host     string `json:"host"`
+	Sender   Sender `json:"_"`
 }
 
 func ParseAccountsFromPath(path string) (map[string]Account, error) {
@@ -65,7 +70,7 @@ func ParseAccounts(reader io.Reader) (map[string]Account, error) {
 		if err != nil {
 			return nil, err
 		}
-		acc.Pool = pool
+		acc.Sender = pool
 	}
 
 	return accs, nil
